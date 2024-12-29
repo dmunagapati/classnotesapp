@@ -7,6 +7,10 @@ A simple note-taking app built with SwiftUI, allowing users to upload, browse, a
 - 📷 Scan documents or upload PDFs
 - 🎨 Earth-tone UI with a focus on simplicity
 
+## Screenshots 🖼️
+![Screenshot](screenshot1.png)
+![Screenshot](screenshot2.png)
+
 ## How to Run the Project 🚀
 1. Clone the repository:
 2. Open `ClassNotesApp.xcodeproj` in Xcode.
