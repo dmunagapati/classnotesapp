@@ -8,8 +8,8 @@ A simple note-taking app built with SwiftUI, allowing users to upload, browse, a
 - 🎨 Earth-tone UI with a focus on simplicity
 
 ## Screenshots 🖼️
-![Home Screen](ClassNotes/Screenshots/screenshot1.png)
-![Upload Note](ClassNotes/Screenshots/screenshot2.png)
+<img src="ClassNotes/Screenshots/screenshot1.png" alt="Home Screen" width="400">
+<img src="ClassNotes/Screenshots/screenshot2.png" alt="Upload Note" width="400">
 
 ## How to Run the Project 🚀
 1. Clone the repository:
