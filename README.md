@@ -12,7 +12,7 @@ A simple note-taking app built with SwiftUI, allowing users to upload, browse, a
 <img src="ClassNotes/Screenshots/screenshot2.png" alt="Upload Note" width="400">
 
 ## How to Run the Project 🚀
-1. Clone the repository:
+1. Clone the repository: https://github.com/dmunagapati/ClassNotesApp
 2. Open `ClassNotesApp.xcodeproj` in Xcode.
 3. Build and run the project on the simulator or your device.
 
