@@ -25,7 +25,7 @@ struct NoteDetailView: View {
                 
                 Text(note.content)  // Display the note content
                     .font(.body)
-                    .foregroundColor(Color(UIColor(red: 0.34, green: 0.34, blue: 0.34, alpha: 1.0)))
+                    .foregroundColor(Color(UIColor(red: 0.41, green: 0.32, blue: 0.23, alpha: 1.0)))
                     .padding(.top, 10)
                 
                 Spacer()

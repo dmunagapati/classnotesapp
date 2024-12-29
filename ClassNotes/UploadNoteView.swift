@@ -10,56 +10,78 @@ struct UploadNoteView: View {
 
     var body: some View {
         ZStack {
-            Color(UIColor(red: 0.90, green: 0.87, blue: 0.80, alpha: 1.0))  // Background
+            // Background color for the entire screen
+            Color(UIColor(red: 0.90, green: 0.87, blue: 0.80, alpha: 1.0))
                 .edgesIgnoringSafeArea(.all)
             
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
+                    // New Note Header
                     Text("New Note")
                         .font(.largeTitle)
                         .foregroundColor(Color(UIColor(red: 0.34, green: 0.49, blue: 0.34, alpha: 1.0)))
                     
+                    // Subject Section
                     Text("Subject:")
                         .font(.headline)
                     
-                    // Styled Subject Text Field
                     TextField("Enter subject", text: $subject)
                         .padding()
                         .background(Color(UIColor(red: 0.95, green: 0.93, blue: 0.88, alpha: 1.0)))
                         .cornerRadius(10)
-                        .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color(UIColor(red: 0.75, green: 0.65, blue: 0.55, alpha: 1.0)), lineWidth: 1))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color(UIColor(red: 0.75, green: 0.65, blue: 0.55, alpha: 1.0)), lineWidth: 1)
+                        )
                     
+                    // Title Section
                     Text("Title:")
                         .font(.headline)
                     
-                    // Styled Title Text Field
                     TextField("Enter title", text: $title)
                         .padding()
                         .background(Color(UIColor(red: 0.95, green: 0.93, blue: 0.88, alpha: 1.0)))
                         .cornerRadius(10)
-                        .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color(UIColor(red: 0.75, green: 0.65, blue: 0.55, alpha: 1.0)), lineWidth: 1))
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color(UIColor(red: 0.75, green: 0.65, blue: 0.55, alpha: 1.0)), lineWidth: 1)
+                        )
                     
+                    // Note Content Section
                     Text("Note Content:")
                         .font(.headline)
                     
-                    // Styled Note Content TextEditor
                     ZStack(alignment: .topLeading) {
+                        // Background Layer to Match TextField
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color(UIColor(red: 0.95, green: 0.93, blue: 0.88, alpha: 1.0)))  // Same as TextField background
+                            .frame(height: 200)  // Ensure full height coverage
+                        
+                        // TextEditor with Transparent Background
                         TextEditor(text: $noteContent)
                             .padding(8)
-                            .background(Color(UIColor(red: 0.95, green: 0.93, blue: 0.88, alpha: 1.0)))  // Matching cream color
-                            .cornerRadius(10)
-                            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color(UIColor(red: 0.75, green: 0.65, blue: 0.55, alpha: 1.0)), lineWidth: 1))
+                            .opacity(0.9)  // Slight transparency to avoid harsh white
+                            .scrollContentBackground(.hidden)
+                            .background(Color.clear)  // Force transparency
                         
-                        // Placeholder text for TextEditor
+                        // Placeholder Text
                         if noteContent.isEmpty {
                             Text("Start typing...")
                                 .foregroundColor(.gray)
+                                .scrollContentBackground(.hidden)
                                 .padding(.top, 16)
                                 .padding(.leading, 12)
                         }
                     }
                     .frame(height: 200)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color(UIColor(red: 0.75, green: 0.65, blue: 0.55, alpha: 1.0)), lineWidth: 1)
+                    )
+
+
                     
+                    // Upload and Scan Buttons
                     HStack(spacing: 20) {
                         Button(action: uploadFile) {
                             Text("Upload PDF")
@@ -80,6 +102,7 @@ struct UploadNoteView: View {
                         }
                     }
                     
+                    // Save Button (Centered)
                     HStack {
                         Spacer()
                         Button(action: saveNote) {
@@ -94,6 +117,7 @@ struct UploadNoteView: View {
                     }
                     .padding(.top, 16)
                     
+                    // Confirmation Message
                     if isNoteSaved {
                         Text("Note saved successfully!")
                             .foregroundColor(Color(UIColor(red: 0.34, green: 0.49, blue: 0.34, alpha: 1.0)))
@@ -107,6 +131,7 @@ struct UploadNoteView: View {
         .navigationBarTitle("Upload Note", displayMode: .inline)
     }
     
+    // Save Note Action
     private func saveNote() {
         let newNote = Note(subject: subject, title: title, content: noteContent, date: Date())
         notes.append(newNote)
@@ -121,6 +146,7 @@ struct UploadNoteView: View {
         }
     }
     
+    // Placeholder Actions for Upload and Scan
     private func uploadFile() {
         print("Upload PDF tapped")
     }
